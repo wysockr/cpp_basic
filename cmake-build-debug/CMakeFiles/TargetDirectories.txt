@@ -1,3 +1,0 @@
-D:/workspace/cpp_basic/cmake-build-debug/CMakeFiles/basic.dir
-D:/workspace/cpp_basic/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/workspace/cpp_basic/cmake-build-debug/CMakeFiles/rebuild_cache.dir

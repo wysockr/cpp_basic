@@ -5,9 +5,14 @@
 #include <array>
 
 #include "modifier.h"
+#include "include/car.h"
+#include "include/electric_car.h"
+
+#include "include/abstract_book.h"
+#include "include/book_registry.h"
+#include "include/paper_book.h"
 
 using namespace std;
-
 
 
 int main() {
@@ -70,7 +75,7 @@ int main() {
     cout << arrayArray[1] << endl;
     cout << arrayArray[2] << endl << endl;
 
-    delete [] dynamicArray;
+    delete[] dynamicArray;
     cout << "POINTER dA" << endl << dynamicArray << endl << endl;
 
     cout << "Before" << endl;
@@ -81,6 +86,30 @@ int main() {
     int tablica[10];
     size_t rozmiar = sizeof(tablica);
     cout << endl << "Rozmiar tablicy: " << rozmiar << " bajtów" << endl;
+
+    cout << endl << "-----------------------------" << endl;
+    Car myCar("Toyota", 4);
+    myCar.start();
+    myCar.honk();
+    myCar.stop();
+
+    ElectricCar myTesla("Tesla Model 3", 4);
+    myTesla.start();
+    myTesla.chargeBattery();
+    myTesla.stop();
+
+    std::cout << "Total vehicles: " << Vehicle::getTotalVehicles() << std::endl;
+    std::cout << "Registered vehicles: " << VehicleRegistry::getRegisteredVehicles() << std::endl;
+
+    cout << endl << endl << "=========================" << endl << endl;
+
+    PaperBook book1("Wiedźmin", "Andrzej Sapkowski", BookFormat::HARD_COVER, "Lorem ipsum", 100);
+//    AbstractBook abstractBook2("Wiedźmin", "Andrzej Sapkowski", BookType::PAPER, BookFormat::PDF);
+    cout << BookRegistry::getReport();
+    cout << book1.getReport();
+
+//    abstractBook1.setType(BookType::AUDIO);
+//    cout << BookRegistry::getReport();
 
     return 0;
 }
