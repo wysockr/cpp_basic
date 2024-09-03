@@ -3,13 +3,13 @@
 #include <string>
 #include <vector>
 #include <array>
+#include <memory>
 
 #include "modifier.h"
-#include "include/car.h"
-#include "include/electric_car.h"
 
 #include "include/abstract_book.h"
 #include "include/book_registry.h"
+#include "include/audio_book.h"
 #include "include/paper_book.h"
 
 using namespace std;
@@ -87,29 +87,42 @@ int main() {
     size_t rozmiar = sizeof(tablica);
     cout << endl << "Rozmiar tablicy: " << rozmiar << " bajtów" << endl;
 
-    cout << endl << "-----------------------------" << endl;
-    Car myCar("Toyota", 4);
-    myCar.start();
-    myCar.honk();
-    myCar.stop();
 
-    ElectricCar myTesla("Tesla Model 3", 4);
-    myTesla.start();
-    myTesla.chargeBattery();
-    myTesla.stop();
+    cout << endl << "=======================================" << endl;
 
-    std::cout << "Total vehicles: " << Vehicle::getTotalVehicles() << std::endl;
-    std::cout << "Registered vehicles: " << VehicleRegistry::getRegisteredVehicles() << std::endl;
+    //books
+    vector<unique_ptr<AbstractBook>> books;
+    books.push_back(
+            make_unique<PaperBook>(
+                    "Wiedźmin",
+                    "Andrzej Sapkowski",
+                    BookFormat::HARD_COVER,
+                    "Lorem ipsum",
+                    100
+            )
+    );
+    books.emplace_back(
+            make_unique<AudioBook>(
+                    "Felix, Net i Nika",
+                    "Rafał Kosik",
+                    BookFormat::MP3,
+                    "Lorem ipsumLorem ipsumLorem ipsumLorem ipsum"
+            )
+    );
+    books.emplace_back(
+            make_unique<AudioBook>(
+                    "Atlas Odrodzony",
+                    "Ann Ryand",
+                    BookFormat::MP3,
+                    "Lorem ipsumLorem ipsumLorem ipsumLorem ipsum"
+            )
+    );
 
-    cout << endl << endl << "=========================" << endl << endl;
-
-    PaperBook book1("Wiedźmin", "Andrzej Sapkowski", BookFormat::HARD_COVER, "Lorem ipsum", 100);
-//    AbstractBook abstractBook2("Wiedźmin", "Andrzej Sapkowski", BookType::PAPER, BookFormat::PDF);
     cout << BookRegistry::getReport();
-    cout << book1.getReport();
 
-//    abstractBook1.setType(BookType::AUDIO);
-//    cout << BookRegistry::getReport();
+    for (const auto &book: books) {
+        cout << book->getReport();
+    }
 
     return 0;
 }
