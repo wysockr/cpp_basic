@@ -16,6 +16,7 @@ string PaperBook::getReport() const {
     report << "Author: " << author << endl;
     report << "Title: " << title << endl;
     report << "Content length: " << getText().length() << endl;
+    report << "Format: " << getFormat() << endl;
     report << "Pages: " << getPages() << endl;
 
     return report.str();

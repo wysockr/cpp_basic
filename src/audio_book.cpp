@@ -16,6 +16,7 @@ string AudioBook::getReport() const {
     report << "Author: " << author << endl;
     report << "Title: " << title << endl;
     report << "Content length: " << getBytes().length() << endl;
+    report << "Format: " << getFormat() << endl;
 
     return report.str();
 }

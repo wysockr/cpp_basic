@@ -17,10 +17,14 @@ add_executable(basic main.cpp
         include/abstract_book.h
         src/content_paper.cpp
         include/content_paper.h
+        src/content_e.cpp
+        include/content_e.h
         src/content_audio.cpp
         include/content_audio.h
         src/paper_book.cpp
         include/paper_book.h
+        src/e_book.cpp
+        include/e_book.h
         include/audio_book.h
         src/audio_book.cpp
 )

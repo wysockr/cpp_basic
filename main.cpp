@@ -11,6 +11,7 @@
 #include "include/book_registry.h"
 #include "include/audio_book.h"
 #include "include/paper_book.h"
+#include "include/e_book.h"
 
 using namespace std;
 
@@ -101,6 +102,7 @@ int main() {
                     100
             )
     );
+
     books.emplace_back(
             make_unique<AudioBook>(
                     "Felix, Net i Nika",
@@ -114,7 +116,26 @@ int main() {
                     "Atlas Odrodzony",
                     "Ann Ryand",
                     BookFormat::MP3,
-                    "Lorem ipsumLorem ipsumLorem ipsumLorem ipsum"
+                    string(191830, '\0')
+            )
+    );
+
+    books.emplace_back(
+            make_unique<EBook>(
+                    "Atlas Odrodzony",
+                    "Ann Ryand",
+                    BookFormat::MOBI,
+                    string(3000, '\0')
+            )
+    );
+
+    books.push_back(
+            make_unique<PaperBook>(
+                    "Wiedźmin II",
+                    "Andrzej Sapkowski",
+                    BookFormat::SOFT_COVER,
+                    "Lorem ipsum II",
+                    101
             )
     );
 
