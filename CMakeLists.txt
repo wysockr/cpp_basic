@@ -27,4 +27,5 @@ add_executable(basic main.cpp
         include/e_book.h
         include/audio_book.h
         src/audio_book.cpp
+        include/enums/book_formats.cpp
 )

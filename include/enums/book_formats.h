@@ -20,7 +20,7 @@ enum class BookFormat {
     WAV
 };
 
-constexpr std::array<const char*, 8> FormatStrings = {
+constexpr std::array<const char *, 8> FormatStrings = {
         "UNKNOWN",
         "SOFT_COVER",
         "HARD_COVER",
@@ -31,8 +31,7 @@ constexpr std::array<const char*, 8> FormatStrings = {
         "WAV"
 };
 
-inline std::ostream& operator<<(std::ostream& os, BookFormat format) {
-    return os << FormatStrings[static_cast<int>(format)];
-}
+std::ostream &operator<<(std::ostream &os, BookFormat format);
+
 
 #endif //BASIC_BOOK_FORMATS_H
